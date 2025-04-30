@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="justify-content-center">
+    <div class="col-sm-8">
+        <table class="table" id="table">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>PHONE</th>
+              <th>WEIGHT</th>
+              <th>HEIGHT</th>
+              <th>EMAIL</th>
+              <th>GENDER</th>
+              <th>DOB</th>
+              <th>Details</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in data %}
+               <tr>
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.phone }}</td>
+            <td>{{ person.weight }}</td>
+            <td>{{ person.height }}</td>
+            <td>{{ person.email }}</td>
+            <td>{{ person.gender }}</td>
+            <td>{{ person.dob }}</td>
+            <td>
+                <a href="details/{{ person.id }}" class="btn btn-sm btn-dark">Details</a>
+            </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+
+
+        </table>
+    </div>
+
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+<script >
+    let table = new DataTable('#table');
+</script>
+
+</body>
+</html>
